@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void GoToLogin(View v){
-        Intent i = new Intent(this, LoginActivity.class);
+        Intent i = new Intent(this, CalculatorActivity.class);
         startActivity(i);
     }
 

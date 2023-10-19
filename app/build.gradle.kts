@@ -2,6 +2,11 @@ plugins {
     id("com.android.application")
 }
 
+dependencies{
+    implementation("org.apache.commons:commons-math3:3.6.1")
+}
+
+
 android {
     namespace = "com.example.assignment1"
     compileSdk = 33

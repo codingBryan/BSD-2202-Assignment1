@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
-
-import org.jetbrains.annotations.NotNull;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -23,4 +21,10 @@ public class DashboardActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.lastnameDash)).setText(lastname);
         ((TextView)findViewById(R.id.emailDash)).setText(email);
     }
+
+    public void GotoCalculator(View view){
+        Intent i = new Intent(this, CalculatorActivity.class);
+        startActivity(i);
+    }
+
 }
