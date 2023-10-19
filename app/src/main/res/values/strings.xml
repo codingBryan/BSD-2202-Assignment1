@@ -1,8 +1,33 @@
 <resources>
+    <string name="app_name">assignment1</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="Hello">Hello</string>
+    <string name="create_account">Create account</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="login">Login</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="password_reset">Password reset</string>
+    <string name="logged_in">Logged in</string>
+    <string name="calculator">Grp C Calculator</string>
+    <string name="log">log</string>
+    <string name="sqrt">sqrt</string>
+    <string name="add">add</string>
+    <string name="subtract">sub</string>
+    <string name="divide">div</string>
+    <string name="factorial">fact</string>
+    <string name="multiply">mul</string>
+    <string name="square">sqr</string>
+    <string name="power">pow</string>
 
     <string name="kca">KCA</string>
     <string name="nextPage">Next Page</string>
     <string name="gotoNext">Next Page</string>
     <string name="gotoKCA">kca</string>
+
 
 </resources>

@@ -7,7 +7,6 @@
     android:background="#2B2B2B"
     android:onClick="BtnClicked"
     tools:context=".CalculatorActivity">
-
     <androidx.cardview.widget.CardView
         android:id="@+id/buttonsContainer"
         android:layout_width="374dp"
@@ -21,20 +20,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent">
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="504dp"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:padding="6sp"
+            android:textAlignment="center">
             <LinearLayout
                 android:id="@+id/height"
                 android:layout_width="match_parent"
                 android:layout_height="88sp"
                 android:orientation="horizontal"
-                android:padding="11sp">
-
+                android:padding="10sp">
                 <Button
                     android:id="@+id/bracketOpenBtn"
                     android:layout_width="0dp"
@@ -50,7 +47,6 @@
                     android:text="("
                     android:textColor="#000000"
                     android:textSize="20sp" />
-
                 <Button
                     android:id="@+id/bracketCloseBtn"
                     android:layout_width="0dp"
@@ -66,7 +62,6 @@
                     android:text=")"
                     android:textColor="#000000"
                     android:textSize="20sp" />
-
                 <Button
                     android:id="@+id/logBtn"
                     android:layout_width="0dp"
@@ -79,10 +74,9 @@
                     android:minWidth="10sp"
                     android:onClick="BtnClicked"
                     android:padding="0sp"
-                    android:text="log"
+                    android:text="mod"
                     android:textColor="#000000"
                     android:textSize="20sp" />
-
                 <Button
                     android:id="@+id/historyBtn"
                     android:layout_width="0dp"
@@ -98,7 +92,6 @@
                     android:text="history"
                     android:textColor="#000000"
                     android:textSize="18sp" />
-
                 <Button
                     android:id="@+id/closeBtn"
                     android:layout_width="0dp"
@@ -109,18 +102,17 @@
                     android:backgroundTint="#E53935"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="BtnClicked"
+                    android:onClick="CloseBtnClicked"
                     android:padding="0sp"
                     android:text="close"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="89dp"
                 android:orientation="horizontal"
-                android:padding="11sp">
+                android:padding="10sp">
 
                 <Button
                     android:id="@+id/nineBtn"
@@ -177,7 +169,7 @@
                     android:backgroundTint="#FB8C00"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="BtnClicked"
+                    android:onClick="DelBtnClicked"
                     android:padding="0sp"
                     android:text="del"
                     android:textColor="#070707" />
@@ -192,14 +184,13 @@
                     android:backgroundTint="#D64040"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="BtnClicked"
+                    android:onClick="AcBtnClicked"
                     android:padding="0sp"
                     android:text="ac"
                     android:textSize="20sp"
                     app:iconPadding="0sp" />
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="88dp"
@@ -263,7 +254,7 @@
                     android:minWidth="10sp"
                     android:onClick="BtnClicked"
                     android:padding="0sp"
-                    android:text="x"
+                    android:text="*"
                     android:textColor="#000000"
                     android:textSize="20sp" />
 
@@ -284,14 +275,12 @@
                     android:textSize="20sp" />
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="88sp"
                 android:orientation="horizontal"
-                android:paddingLeft="10sp"
-                android:paddingTop="10sp"
-                android:paddingRight="10sp">
+                android:padding="10sp"
+                android:paddingTop="10sp">
 
                 <Button
                     android:id="@+id/oneBtn"
@@ -370,14 +359,11 @@
                     android:textColor="#000000"
                     android:textSize="22sp" />
             </LinearLayout>
-
             <LinearLayout
-                android:layout_width="match_parent  "
+                android:layout_width="match_parent"
                 android:layout_height="88sp"
                 android:orientation="horizontal"
-                android:paddingLeft="10sp"
-                android:paddingTop="10sp"
-                android:paddingRight="10sp">
+                android:padding="10sp">
 
                 <Button
                     android:id="@+id/zeroBtn"
@@ -406,8 +392,9 @@
                     android:minWidth="10sp"
                     android:onClick="BtnClicked"
                     android:padding="0sp"
-                    android:text="square"
-                    android:textColor="#000000" />
+                    android:text="00"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/sqrtBtn"
@@ -421,8 +408,9 @@
                     android:minWidth="10sp"
                     android:onClick="BtnClicked"
                     android:padding="0sp"
-                    android:text="sqrt"
-                    android:textColor="#000000" />
+                    android:text="000"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/factBtn"
@@ -436,8 +424,9 @@
                     android:minWidth="10sp"
                     android:onClick="BtnClicked"
                     android:padding="0sp"
-                    android:text="@string/factorial"
-                    android:textColor="#000000" />
+                    android:text="."
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/getAnswerBtn"
@@ -449,16 +438,13 @@
                     android:backgroundTint="#43A047"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="BtnClicked"
+                    android:onClick="GetAnswer"
                     android:padding="0sp"
                     android:text="="
                     android:textSize="20sp" />
             </LinearLayout>
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
     <androidx.cardview.widget.CardView
         android:layout_width="359dp"
         android:layout_height="98dp"
@@ -469,12 +455,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.905">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/expression"
                 android:layout_width="match_parent"
@@ -483,20 +467,16 @@
                 android:padding="10sp"
                 android:textColor="#A59A9A"
                 android:textStyle="italic" />
-
             <TextView
                 android:id="@+id/answerString"
                 android:layout_width="match_parent"
                 android:layout_height="59dp"
                 android:fontFamily="monospace"
                 android:padding="10sp"
-                android:text="TextView"
                 android:textAlignment="textEnd"
                 android:textSize="24sp" />
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
@@ -509,132 +489,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:layout_width="230dp"
-        android:layout_height="17dp"
-        android:layout_marginTop="100dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/addIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/add"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/subIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/subtract"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/divIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/divide"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/factIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/factorial"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/mulIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/multiply"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/logIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/log"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/sqrtIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/sqrt"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/powIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/power"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/squareIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="5sp"
-            android:text="@string/square"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,76 +1,82 @@
 package com.example.assignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
-import javax.script.*;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
-
-import org.apache.commons.math3.analysis.*;
-import org.apache.commons.math3.analysis.function.Exp;
-import org.apache.commons.math3.analysis.function.Log;
-import org.apache.commons.math3.analysis.function.Pow;
-import org.apache.commons.math3.analysis.function.Sqrt;
-import org.apache.commons.math3.analysis.function.Tan;
-import org.apache.commons.math3.analysis.function.Ulp;
-
-import java.util.ArrayList;
+import com.ezylang.evalex.EvaluationException;
+import com.ezylang.evalex.Expression;
+import com.ezylang.evalex.data.EvaluationValue;
+import com.ezylang.evalex.parser.ParseException;
 import java.util.List;
 
 public class CalculatorActivity extends AppCompatActivity {
-
+    public String getExpressionText() {
+        return expressionText;
+    }
+    public void setExpressionText(String expressionText) {
+        this.expressionText = expressionText;
+    }
     String expressionText = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-
     }
-
-
+    public void GetAnswer(View view){
+        String displayAnswer;
+        Expression e = new Expression(getExpressionText());
+        try {
+            EvaluationValue ans = e.evaluate();
+            displayAnswer = ans.getStringValue();
+            ((TextView)findViewById(R.id.answerString)).setText(displayAnswer);
+        }catch (EvaluationException ex){
+            displayAnswer = ex.getMessage();
+            ((TextView)findViewById(R.id.answerString)).setText(displayAnswer);
+        } catch (ParseException ex) {
+            displayAnswer = ex.getMessage();
+            ((TextView)findViewById(R.id.answerString)).setText(displayAnswer);
+        } finally {
+            return;
+        }
+    }
+    public void DelBtnClicked(View view){
+        if (getExpressionText() == null || getExpressionText().isEmpty()) {
+            return ; // Return the original string if it's null or empty
+        }
+        String deleted = getExpressionText().substring(0, getExpressionText().length() - 1);
+        setExpressionText(deleted);
+        ((TextView)findViewById(R.id.expression)).setText(getExpressionText());
+    }
+    public void AcBtnClicked(View view){
+        ((TextView)findViewById(R.id.expression)).setText(null);
+    }
+    public void CloseBtnClicked(View view){
+        Intent i = new Intent(this, DashboardActivity.class);
+        startActivity(i);
+    }
+    public void historyBtnClicked(View view){
+        Intent i = new Intent(this, HistoryActivity.class);
+        startActivity(i);
+    }
     public void BtnClicked(View view){
         Button btn= (Button)view;
         String btnText = btn.getText().toString();
 
         TextView expressionView = ((TextView) findViewById(R.id.expression));
-
-
-
-        if (btnText.equals("del") || btnText.equals("ac") || btnText.equals("=") || btnText.equals("history") || btnText.equals("log") || btnText.equals("close")){
+        if (btnText.equals("history")){
             return;
         }
-        if(btnText.equals("square")){
-            findViewById(R.id.squareIndicator).setVisibility(view.VISIBLE);
-        }
-        if(btnText.equals("fact")){
-            findViewById(R.id.factIndicator).setVisibility(view.VISIBLE);
-        }
-        if(btnText.equals("sqrt")){
-            findViewById(R.id.sqrtIndicator).setVisibility(view.VISIBLE);
-        }
-        if(btnText.equals("log")){
-            findViewById(R.id.logIndicator).setVisibility(view.VISIBLE);
-        }
-        if(btnText.equals("="))
-        {
-            String expression = expressionView.getText().toString();
-//            double result = ExpressionEvaluator.evaluateExpression(expression);
+        if (btnText.equals("mod")){
+            expressionText = expressionView.getText().toString() + "%";
+            expressionView.setText(expressionText);
         }
         else{
             expressionText = expressionView.getText().toString() + btnText;
             expressionView.setText(expressionText);
         }
-
-
     }
-
-}
-class ExpressionEvaluator{
-//    public static double evaluateExpression(String expression) {
-//        // Create a parser
-//
-//    }
 }
