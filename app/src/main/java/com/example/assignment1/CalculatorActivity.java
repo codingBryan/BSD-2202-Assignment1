@@ -11,9 +11,13 @@ import com.ezylang.evalex.EvaluationException;
 import com.ezylang.evalex.Expression;
 import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.parser.ParseException;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class CalculatorActivity extends AppCompatActivity {
+
+    public static List<CalchHistory> History = new ArrayList<>();
     public String getExpressionText() {
         return expressionText;
     }
@@ -28,11 +32,15 @@ public class CalculatorActivity extends AppCompatActivity {
     }
     public void GetAnswer(View view){
         String displayAnswer;
+
         Expression e = new Expression(getExpressionText());
         try {
+            //Ezylang
             EvaluationValue ans = e.evaluate();
             displayAnswer = ans.getStringValue();
             ((TextView)findViewById(R.id.answerString)).setText(displayAnswer);
+            CalchHistory h = new CalchHistory(getExpressionText(),displayAnswer);
+            History.add(h);
         }catch (EvaluationException ex){
             displayAnswer = ex.getMessage();
             ((TextView)findViewById(R.id.answerString)).setText(displayAnswer);
@@ -79,4 +87,13 @@ public class CalculatorActivity extends AppCompatActivity {
             expressionView.setText(expressionText);
         }
     }
+}
+
+class CalchHistory{
+    public CalchHistory(String e,String a){
+        expression = e;
+        answer = a;
+    }
+    public String expression;
+    public String answer;
 }
