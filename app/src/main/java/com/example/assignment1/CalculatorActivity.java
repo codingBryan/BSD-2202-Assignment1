@@ -14,82 +14,93 @@ import com.ezylang.evalex.parser.ParseException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Math;
+
 
 public class CalculatorActivity extends AppCompatActivity {
 
     public static List<CalchHistory> History = new ArrayList<>();
+
     public String getExpressionText() {
         return expressionText;
     }
+
     public void setExpressionText(String expressionText) {
         this.expressionText = expressionText;
     }
+
     String expressionText = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
     }
-    public void GetAnswer(View view){
+
+    public void GetAnswer(View view) {
         String displayAnswer;
 
         Expression e = new Expression(getExpressionText());
         try {
-            //Ezylang
             EvaluationValue ans = e.evaluate();
             displayAnswer = ans.getStringValue();
-            ((TextView)findViewById(R.id.answerString)).setText(displayAnswer);
-            CalchHistory h = new CalchHistory(getExpressionText(),displayAnswer);
+            ((TextView) findViewById(R.id.answerString)).setText(displayAnswer);
+            CalchHistory h = new CalchHistory(getExpressionText(), displayAnswer);
             History.add(h);
-        }catch (EvaluationException ex){
+        } catch (EvaluationException ex) {
             displayAnswer = ex.getMessage();
-            ((TextView)findViewById(R.id.answerString)).setText(displayAnswer);
+            ((TextView) findViewById(R.id.answerString)).setText(displayAnswer);
         } catch (ParseException ex) {
             displayAnswer = ex.getMessage();
-            ((TextView)findViewById(R.id.answerString)).setText(displayAnswer);
-        } finally {
-            return;
+            ((TextView) findViewById(R.id.answerString)).setText(displayAnswer);
         }
     }
-    public void DelBtnClicked(View view){
+
+
+    public void DelBtnClicked(View view) {
         if (getExpressionText() == null || getExpressionText().isEmpty()) {
-            return ; // Return the original string if it's null or empty
+            return; // Return the original string if it's null or empty
         }
         String deleted = getExpressionText().substring(0, getExpressionText().length() - 1);
         setExpressionText(deleted);
-        ((TextView)findViewById(R.id.expression)).setText(getExpressionText());
+        ((TextView) findViewById(R.id.expression)).setText(getExpressionText());
     }
-    public void AcBtnClicked(View view){
-        ((TextView)findViewById(R.id.expression)).setText(null);
+
+    public void AcBtnClicked(View view) {
+        ((TextView) findViewById(R.id.expression)).setText(null);
     }
-    public void CloseBtnClicked(View view){
+
+    public void CloseBtnClicked(View view) {
         Intent i = new Intent(this, DashboardActivity.class);
         startActivity(i);
     }
-    public void historyBtnClicked(View view){
+
+    public void historyBtnClicked(View view) {
         Intent i = new Intent(this, HistoryActivity.class);
         startActivity(i);
     }
-    public void BtnClicked(View view){
-        Button btn= (Button)view;
+
+    public void BtnClicked(View view) {
+        Button btn = (Button) view;
         String btnText = btn.getText().toString();
 
         TextView expressionView = ((TextView) findViewById(R.id.expression));
-        if (btnText.equals("history")){
+
+        if (btnText.equals("history")) {
             return;
-        }
-        if (btnText.equals("mod")){
+        } else if (btnText.equals("mod")) {
             expressionText = expressionView.getText().toString() + "%";
-            expressionView.setText(expressionText);
-        }
-        else{
+        } else if (btnText.equals("sin") || btnText.equals("cos") || btnText.equals("tan")) {
+            expressionText = expressionView.getText().toString() + btnText + "(";
+        } else {
             expressionText = expressionView.getText().toString() + btnText;
-            expressionView.setText(expressionText);
         }
+
+        expressionView.setText(expressionText);
     }
 }
 
-class CalchHistory{
+    class CalchHistory{
     public CalchHistory(String e,String a){
         expression = e;
         answer = a;

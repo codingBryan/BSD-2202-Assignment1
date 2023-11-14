@@ -7,10 +7,11 @@
     android:background="#2B2B2B"
     android:onClick="BtnClicked"
     tools:context=".CalculatorActivity">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/buttonsContainer"
         android:layout_width="374dp"
-        android:layout_height="462dp"
+        android:layout_height="555dp"
         android:layout_marginBottom="56dp"
         android:background="#393939"
         android:backgroundTint="#393939"
@@ -20,18 +21,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="504dp"
+            android:layout_height="547dp"
             android:orientation="vertical"
             android:padding="6sp"
             android:textAlignment="center">
+
             <LinearLayout
                 android:id="@+id/height"
                 android:layout_width="match_parent"
                 android:layout_height="88sp"
                 android:orientation="horizontal"
                 android:padding="10sp">
+
                 <Button
                     android:id="@+id/bracketOpenBtn"
                     android:layout_width="0dp"
@@ -47,6 +51,7 @@
                     android:text="("
                     android:textColor="#000000"
                     android:textSize="20sp" />
+
                 <Button
                     android:id="@+id/bracketCloseBtn"
                     android:layout_width="0dp"
@@ -62,6 +67,7 @@
                     android:text=")"
                     android:textColor="#000000"
                     android:textSize="20sp" />
+
                 <Button
                     android:id="@+id/logBtn"
                     android:layout_width="0dp"
@@ -93,6 +99,7 @@
                     android:text="history"
                     android:textColor="#000000"
                     android:textSize="18sp" />
+
                 <Button
                     android:id="@+id/closeBtn"
                     android:layout_width="0dp"
@@ -109,6 +116,7 @@
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="89dp"
@@ -192,6 +200,7 @@
                     app:iconPadding="0sp" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="88dp"
@@ -276,6 +285,7 @@
                     android:textSize="20sp" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="88sp"
@@ -360,6 +370,7 @@
                     android:textColor="#000000"
                     android:textSize="22sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="88sp"
@@ -427,6 +438,73 @@
                     android:padding="0sp"
                     android:text="."
                     android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/sinBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="GetAnswer"
+                    android:padding="0sp"
+                    android:text="Sin"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="358dp"
+                android:layout_height="81dp"
+                android:orientation="horizontal"
+                android:padding="10sp">
+
+                <Button
+                    android:id="@+id/cosBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="BtnClicked"
+                    android:padding="0sp"
+                    android:text="Cos"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/tanBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="BtnClicked"
+                    android:padding="0sp"
+                    android:text="Tan"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/piBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="BtnClicked"
+                    android:padding="0sp"
+                    android:text="π"
                     android:textSize="20sp" />
 
                 <Button
