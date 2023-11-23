@@ -23,11 +23,14 @@
     <string name="multiply">mul</string>
     <string name="square">sqr</string>
     <string name="power">pow</string>
+    <string name="sin">sin</string>
+    <string name="tan">tan</string>
+    <string name="cos">cos</string>
 
     <string name="kca">KCA</string>
     <string name="nextPage">Next Page</string>
     <string name="gotoNext">Next Page</string>
     <string name="gotoKCA">kca</string>
-
+    <string name="calculations">Calculations</string>
 
 </resources>

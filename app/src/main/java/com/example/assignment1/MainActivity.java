@@ -12,19 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     public static List<User> users= new ArrayList<User>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
     public void GoToLogin(View v){
         Intent i = new Intent(this, CalculatorActivity.class);
         startActivity(i);
     }
-
     public void CreateAccount(View v){
         String email = ((EditText)findViewById(R.id.email)).getText().toString();
         for (int i = 0; i < users.size(); i++) {
@@ -32,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
             }
         }
-
         String password = ((EditText)findViewById(R.id.passwordSigUp)).getText().toString();
         String passwordConfirm = ((EditText)findViewById(R.id.passwordConfirm)).getText().toString();
         if(password.equals(passwordConfirm)){

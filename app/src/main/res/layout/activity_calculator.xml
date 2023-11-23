@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2B2B2B"
-    android:onClick="BtnClicked"
     tools:context=".CalculatorActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/buttonsContainer"
-        android:layout_width="374dp"
-        android:layout_height="555dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="359dp"
+        android:layout_height="561dp"
         android:background="#393939"
         android:backgroundTint="#393939"
         android:padding="20sp"
@@ -24,17 +22,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="547dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="6sp"
             android:textAlignment="center">
 
             <LinearLayout
                 android:id="@+id/height"
                 android:layout_width="match_parent"
-                android:layout_height="88sp"
-                android:orientation="horizontal"
-                android:padding="10sp">
+                android:layout_height="75dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/bracketOpenBtn"
@@ -94,7 +90,7 @@
                     android:backgroundTint="#FFFDFD"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="BtnClicked"
+                    android:onClick="HistoryBtnClicked"
                     android:padding="0sp"
                     android:text="history"
                     android:textColor="#000000"
@@ -119,9 +115,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="89dp"
-                android:orientation="horizontal"
-                android:padding="10sp">
+                android:layout_height="71dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/nineBtn"
@@ -203,7 +198,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="88dp"
+                android:layout_height="81dp"
                 android:orientation="horizontal"
                 android:padding="10sp">
 
@@ -288,7 +283,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="88sp"
+                android:layout_height="84dp"
                 android:orientation="horizontal"
                 android:padding="10sp"
                 android:paddingTop="10sp">
@@ -373,7 +368,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="88sp"
+                android:layout_height="80dp"
                 android:orientation="horizontal"
                 android:padding="10sp">
 
@@ -439,7 +434,30 @@
                     android:text="."
                     android:textColor="#000000"
                     android:textSize="20sp" />
+                <Button
+                    android:id="@+id/sqrt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="SqrtBtnClicked"
+                    android:padding="0sp"
+                    android:text="√"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="358dp"
+                android:layout_height="79dp"
+                android:orientation="horizontal"
+                android:padding="10sp">
                 <Button
                     android:id="@+id/sinBtn"
                     android:layout_width="wrap_content"
@@ -450,9 +468,77 @@
                     android:backgroundTint="#FFFFFF"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="GetAnswer"
+                    android:onClick="SinBtnClicked"
                     android:padding="0sp"
-                    android:text="Sin"
+                    android:text="sin"
+                    android:textAlignment="center"
+                    android:textColor="#040000"
+                    android:textSize="20sp" />
+
+
+
+                <Button
+                    android:id="@+id/cosine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="CosBtnClicked"
+                    android:padding="0sp"
+                    android:text="cos"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/tangent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="TanBtnClicked"
+                    android:padding="0sp"
+                    android:text="tan"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/pi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="PiBtnClicked"
+                    android:padding="0sp"
+                    android:text="π"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/power"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="PowBtnClicked"
+                    android:padding="0sp"
+                    android:text="^"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -463,7 +549,7 @@
                 android:padding="10sp">
 
                 <Button
-                    android:id="@+id/cosBtn"
+                    android:id="@+id/cosecant"
                     android:layout_width="wrap_content"
                     android:layout_height="67dp"
                     android:layout_marginRight="10sp"
@@ -472,13 +558,14 @@
                     android:backgroundTint="#FFFFFF"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="BtnClicked"
+                    android:onClick="CosecBtnClicked"
                     android:padding="0sp"
-                    android:text="Cos"
+                    android:text="cosec"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <Button
-                    android:id="@+id/tanBtn"
+                    android:id="@+id/sec"
                     android:layout_width="wrap_content"
                     android:layout_height="67dp"
                     android:layout_marginRight="10sp"
@@ -487,13 +574,14 @@
                     android:backgroundTint="#FFFFFF"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="BtnClicked"
+                    android:onClick="SecBtnClicked"
                     android:padding="0sp"
-                    android:text="Tan"
+                    android:text="sec"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <Button
-                    android:id="@+id/piBtn"
+                    android:id="@+id/cotangent"
                     android:layout_width="wrap_content"
                     android:layout_height="67dp"
                     android:layout_marginRight="10sp"
@@ -502,9 +590,26 @@
                     android:backgroundTint="#FFFFFF"
                     android:maxWidth="100sp"
                     android:minWidth="10sp"
-                    android:onClick="BtnClicked"
+                    android:onClick="CotBtnClicked"
                     android:padding="0sp"
-                    android:text="π"
+                    android:text="cot"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/factorial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:width="10sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:maxWidth="100sp"
+                    android:minWidth="10sp"
+                    android:onClick="FactBtnClicked"
+                    android:padding="0sp"
+                    android:text="fact"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <Button
@@ -522,11 +627,12 @@
                     android:text="="
                     android:textSize="20sp" />
             </LinearLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:layout_width="359dp"
-        android:layout_height="98dp"
+        android:layout_height="120dp"
         android:backgroundTint="#393939"
         app:cardCornerRadius="10sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonsContainer"
@@ -546,26 +652,31 @@
                 android:padding="10sp"
                 android:textColor="#A59A9A"
                 android:textStyle="italic" />
+
             <TextView
                 android:id="@+id/answerString"
                 android:layout_width="match_parent"
-                android:layout_height="59dp"
+                android:layout_height="74dp"
                 android:fontFamily="monospace"
                 android:padding="10sp"
                 android:textAlignment="textEnd"
-                android:textSize="24sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/abeezee"
         android:text="@string/calculator"
         android:textColor="#F1F1F1"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

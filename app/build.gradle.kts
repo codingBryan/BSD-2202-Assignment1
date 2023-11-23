@@ -5,8 +5,8 @@ plugins {
 dependencies{
     implementation("org.apache.commons:commons-math3:3.6.1")
     implementation("com.ezylang:EvalEx:3.0.5")
+    implementation("com.ezylang:EvalEx-big-math:1.0.0")
 }
-
 
 android {
     namespace = "com.example.assignment1"

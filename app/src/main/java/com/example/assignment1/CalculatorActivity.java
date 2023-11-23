@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.ezylang.evalex.EvaluationException;
 import com.ezylang.evalex.Expression;
+import com.ezylang.evalex.bigmath.BigMathExpression;
 import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.parser.ParseException;
 
@@ -40,13 +43,14 @@ public class CalculatorActivity extends AppCompatActivity {
     public void GetAnswer(View view) {
         String displayAnswer;
 
-        Expression e = new Expression(getExpressionText());
+         BigMathExpression e = new BigMathExpression(getExpressionText());
         try {
             EvaluationValue ans = e.evaluate();
             displayAnswer = ans.getStringValue();
             ((TextView) findViewById(R.id.answerString)).setText(displayAnswer);
             CalchHistory h = new CalchHistory(getExpressionText(), displayAnswer);
             History.add(h);
+            Toast.makeText(this, "calculation saved", Toast.LENGTH_SHORT).show();
         } catch (EvaluationException ex) {
             displayAnswer = ex.getMessage();
             ((TextView) findViewById(R.id.answerString)).setText(displayAnswer);
@@ -75,36 +79,104 @@ public class CalculatorActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void historyBtnClicked(View view) {
+    public void HistoryBtnClicked(View view) {
         Intent i = new Intent(this, HistoryActivity.class);
         startActivity(i);
     }
 
+
+
     public void BtnClicked(View view) {
         Button btn = (Button) view;
         String btnText = btn.getText().toString();
-
         TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + btnText;
+        expressionView.setText(expressionText);
+    }
 
-        if (btnText.equals("history")) {
-            return;
-        } else if (btnText.equals("mod")) {
-            expressionText = expressionView.getText().toString() + "%";
-        } else if (btnText.equals("sin") || btnText.equals("cos") || btnText.equals("tan")) {
-            expressionText = expressionView.getText().toString() + btnText + "(";
-        } else {
-            expressionText = expressionView.getText().toString() + btnText;
-        }
 
+    public void FactBtnClicked(View view) {
+        Button btn = (Button) view;
+        String btnText = btn.getText().toString();
+        TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + "FACT(";
+        expressionView.setText(expressionText);
+    }
+    public void CosecBtnClicked(View view) {
+        Button btn = (Button) view;
+        String btnText = btn.getText().toString();
+        TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + "CSC(";
+        expressionView.setText(expressionText);
+    }
+    public void SecBtnClicked(View view) {
+        Button btn = (Button) view;
+        String btnText = btn.getText().toString();
+        TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + "SEC(";
+        expressionView.setText(expressionText);
+    }
+    public void CotBtnClicked(View view) {
+        Button btn = (Button) view;
+        String btnText = btn.getText().toString();
+        TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + "COT(";
+        expressionView.setText(expressionText);
+    }
+
+    public void CosBtnClicked(View view) {
+        Button btn = (Button) view;
+        String btnText = btn.getText().toString();
+        TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + "COS(";
+        expressionView.setText(expressionText);
+    }
+
+    public void SqrtBtnClicked(View view) {
+        Button btn = (Button) view;
+        String btnText = btn.getText().toString();
+        TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + "SQRT(";
+        expressionView.setText(expressionText);
+    }
+    public void TanBtnClicked(View view) {
+        Button btn = (Button) view;
+        String btnText = btn.getText().toString();
+        TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + "TAN(";
+        expressionView.setText(expressionText);
+    }
+    public void PiBtnClicked(View view) {
+        Button btn = (Button) view;
+        String btnText = btn.getText().toString();
+        TextView expressionView = ((TextView) findViewById(R.id.expression));
+        expressionText = expressionView.getText().toString() + "PI(";
         expressionView.setText(expressionText);
     }
 }
 
     class CalchHistory{
-    public CalchHistory(String e,String a){
+        public String getAnswer() {
+            return answer;
+        }
+
+        public void setAnswer(String answer) {
+            this.answer = answer;
+        }
+
+        public CalchHistory(String e, String a){
         expression = e;
         answer = a;
-    }
-    public String expression;
-    public String answer;
+        }
+
+        public String getExpression() {
+            return expression;
+        }
+
+        public void setExpression(String expression) {
+            this.expression = expression;
+        }
+
+        String expression;
+        String answer;
 }
